@@ -11,8 +11,8 @@ env:
   matrix:
     - LUA=lua5.1
 
-before_install:
-  - source .travis/setenv_lua.sh
+# before_install:
+  # - source .travis/setenv_lua.sh
 
 install:
   # - luarocks install Lua-cURL --server=https://luarocks.org/dev
