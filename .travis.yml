@@ -19,7 +19,8 @@ install:
   # - luarocks install lunitx
   # - luarocks install JSON4Lua
   - tar czvf $NAME-$VERSION.tar.gz ./lib
-
+script:
+  - echo 'do nothing'
 # script:
 #   - luarocks make --pack-binary-rock $ROCKSPEC CFLAGS="-O2 -fPIC -fprofile-arcs" LIBFLAG="-shared"
 
