@@ -18,7 +18,7 @@ install:
   # - luarocks install Lua-cURL --server=https://luarocks.org/dev
   # - luarocks install lunitx
   # - luarocks install JSON4Lua
-  - tar czvf $NAME-$VERSION.tar.gz ./
+  - tar czvf $NAME-$VERSION.tar.gz ./lib
 
 # script:
 #   - luarocks make --pack-binary-rock $ROCKSPEC CFLAGS="-O2 -fPIC -fprofile-arcs" LIBFLAG="-shared"
