@@ -30,7 +30,7 @@ install:
 # deploy to gitlab release page
 deploy:
   provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
+  api_key: $github_token
   file: $NAME-$VERSION.tar.gz
   skip_cleanup: true
   overwrite: true
