@@ -15,16 +15,27 @@ before_install:
   - source .travis/setenv_lua.sh
 
 install:
-  - luarocks install Lua-cURL --server=https://luarocks.org/dev
-  - luarocks install lunitx
-  - luarocks install JSON4Lua
+  # - luarocks install Lua-cURL --server=https://luarocks.org/dev
+  # - luarocks install lunitx
+  # - luarocks install JSON4Lua
+  - tar czvf $NAME-$VERSION.tar.gz ./
 
-script:
-  - luarocks make --pack-binary-rock $ROCKSPEC CFLAGS="-O2 -fPIC -fprofile-arcs" LIBFLAG="-shared"
+# script:
+#   - luarocks make --pack-binary-rock $ROCKSPEC CFLAGS="-O2 -fPIC -fprofile-arcs" LIBFLAG="-shared"
 
-# The API key comes from an environment variable configured on https://travis-ci.org
-after_success:
-  - luarocks upload --api-key=$API_KEY $ROCKSPEC
+# # The API key comes from an environment variable configured on https://travis-ci.org
+# after_success:
+#   - luarocks upload --api-key=$API_KEY $ROCKSPEC
+
+# deploy to gitlab release page
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file: $NAME-$VERSION.tar.gz
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: true
 
 notifications:
   email:
